@@ -19,7 +19,7 @@ DOCTYPE HTML>
 					<li><a href="#top">الرئيسية</a></li>
 					<li><a href="#work">اخر الاخبار</a></li>
 					<li><a href="#portfolio">جدول المباريات</a></li>
-					<li><a href="#contact">الانتقالات</a></li>
+					<li><a href="#contact">أبرز الأخبار</a></li>
 				</ul>
 			</nav>
 
