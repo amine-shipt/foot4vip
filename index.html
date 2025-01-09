@@ -172,12 +172,74 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </style>
 </head>
 <body>
-    
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSN3R2P4"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    
+               <body>
+    <div>
+        <!-- شاشة التحميل -->
+        <div id="splash-screen" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            
+  color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        ">
+            <img src="logo.png" alt="أوميش فزت" style="
+                width: 200px;
+                animation: fadeIn 1.5s ease-in-out;
+            ">
+        </div>
+
+        <!-- محتوى الموقع -->
+        <div id="main-content" style="display: none;">
+            <h1>مرحباً بك في موقع أوميش فزت</h1>
+            <p>هذا هو محتوى الموقع.</p>
+        </div>
+    </div>
+
+    <script>
+        // تأثير ظهور الشعار
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fadeIn 
+              from {
+                    opacity: 0;
+                    transform: scale(0.8);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // إخفاء شاشة التحميل بعد تحميل الصفحة
+        window.addEventListener('load', () => {
+            const splashScreen = document.getElementById('splash-screen');
+            const mainContent = document.getElementById('main-content');
+
+            setTimeout(() => {
+                splashScreen.style.opacity = '0'; // تأثير الاختفاء
+                splashScreen.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    splashScreen.style.display = 'none'; // إخفاء شاشة التحميل
+                    mainContent.style.display = 'block'; // عرض المحتوى
+                }, 500); // وقت تأثير الاختفاء
+
+           }, 3000); // مدة ظهور الشاشة (3 ثوانٍ)
+        });
+    </script>
+
     <header>
         <h1>موقع أوميش فوت</h1>
         <nav>
