@@ -253,60 +253,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-<div style="max-width: 900px; margin: 20px auto; padding: 20px; background-color: #f9f9f9; border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
-    <h2 style="text-align: center; color: #ff6600; font-family: Arial, sans-serif; margin-bottom: 30px;">🎥 ملخصات المباريات</h2>
-    
-    <!-- ملخص المباراة 1 -->
-    <div style="display: flex; flex-wrap: wrap; margin-bottom: 20px; padding: 15px; background-color: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);">
-        <div style="flex: 1; max-width: 350px; margin-right: 15px;">
-            <!-- فيديو مباشرة في الموقع -->
-            <iframe width="100%" height="250" src="https://www.youtube.com/embed/BTfzvybLgaU" frameborder="50" allowfullscreen style="border-radius: 10px;"></iframe>
-        </div>
-        <div style="flex: 2; text-align: left;">
-            <h1 style="margin: 0; color: #333; font-size: 30px;">ليفربول  2-0 مانشستر سيتي</h1>
-            <h3 style="margin-top: 10px; color: #555; line-height: 1.6;">
-                شاهد ملخص مباراة ليفربول ضد مانشستر سيتي ضمن منافسات الدوري الإنجليزي تألق محمد صلاح وجاكبو ليقودا الفريق إلى انتصار مثير.
-            </h3>
+
+    <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; height: 100vh; margin: 0; padding: 0; box-sizing: border-box;">
+
+    <!-- لائحة المباريات -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 900px;">
+        <!-- مباراة 1 -->
+        <div onclick="showMatchDetails('برشلونة ضد ريال مدريد', 'اليوم الساعة 10:00 مساءً', 'https://free.one24tv.com:443/16001736681553/16001736681553/294', 'جاري الآن', 'https://upload.wikimedia.org/wikipedia/commons/4/47/FC_Barcelona_logo_%282019%29.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/60/Real_Madrid_CF_logo.svg')" style="background-color: #2196F3; color: white; padding: 30px; border-radius: 15px; cursor: pointer; margin: 10px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, background-color 0.3s ease; width: 100%; max-width: 350px;">
+            <img src="https://a.top4top.io/p_3299ba2ae1.png" alt="برشلونة" style="width: 50px; height: 50px; margin-bottom: 10px;">
+            <img src="https://l.top4top.io/p_3299zv4v71.png" alt="ريال مدريد" style="width: 50px; height: 50px; margin-bottom: 10px;">
+            <div style="position: absolute; top: 10px; center: 10px; background-color: rgba(0, 0, 0, 0.5); padding: 5px 10px; border-radius: 5px;"> </div>
+            <h3>برشلونة ضد ريال مدريد</h3>
+            <div style="text-align: center; margin: 20px; padding: 10px; background-color: #4CAF50; color: white; font-size: 18px; font-weight: bold; border-radius: 5px; width: fit-content; cursor: pointer;">
+                بث مباشر
+            </div>
         </div>
     </div>
-    
-    <!-- ملخص المباراة 2 -->
-    <div style="display: flex; flex-wrap: wrap; margin-bottom: 20px; padding: 15px; background-color: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);">
-        <div style="flex: 1; max-width: 350px; margin-right: 15px;">
-            <!-- فيديو مباشرة في الموقع -->
-            <iframe width="100%" height="250" src="https://www.youtube.com/embed/91yTkkHHj6U" frameborder="0" allowfullscreen style="border-radius: 10px;"></iframe>
-        </div>
-        <div style="flex: 2; text-align: left;">
-            <h3 style="margin: 0; color: #333; font-size: 30px;">برشبونة1-2لاس بالماس</h3>
-            <p style="margin-top: 10px; color: #555; line-height: 1.6;"> شاهد ملخص مباراة برشلونة ضد لاس بالماس حيث تألق رافينيا وسجل هدف لكن فريق الخصم له رأي أخر
-            </p>
-        </div>
+
+    <!-- تفاصيل المباراة -->
+    <div id="matchDetails" style="display: none; text-align: center; margin-top: 20px;">
+        <h2 id="matchTitle" style="font-size: 24px; color: #333;"></h2>
+        <p id="matchTime" style="font-size: 18px; color: #777;"></p>
+        <button onclick="playMatch()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">شاهد المباراة</button>
     </div>
-</div>
 
+    <!-- مشغل الفيديو -->
+    <div class="video-container" id="videoContainer" style="display: none; margin-top: 20px; width: 100%; max-width: 800px;">
+        <video id="video" controls style="width: 100%; height: auto; border-radius: 10px;">
+            <p>لأسف، المتصفح الخاص بك لا يدعم تشغيل الفيديو.</p>
+        </video>
+    </div>
 
+    <script>
+        var currentVideoUrl = "";
 
+        // عرض تفاصيل المباراة عند الضغط على الخانة
+        function showMatchDetails(title, time, videoUrl, status, teamLogo1, teamLogo2) {
+            document.getElementById("matchTitle").innerText = title;
+            document.getElementById("matchTime").innerText = time + ' - الحالة: ' + status;
+            document.getElementById("matchDetails").style.display = 'block';
+            document.getElementById("videoContainer").style.display = 'none';
+            currentVideoUrl = videoUrl;
+        }
 
-    
-<
-                    
-    
-                   
-                </div>
-                </section>
-                
-                <head>
-                    
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7419332361608078"
-     crossorigin="anonymous"></script>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>ملخصات المباريات</title>
-                    </head>
-   
-        </div>
-    </section>
-    
+        // دالة لتشغيل الفيديو
+        function playMatch() {
+            document.getElementById("matchDetails").style.display = 'none';
+            document.getElementById("videoContainer").style.display = 'block';
+            
+            var video = document.getElementById('video');
+            var videoSrc = currentVideoUrl;
+
+            // تحقق إذا كان المتصفح يدعم Hls.js
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                    video.play();
+                });
+            }
+            // إذا كان المتصفح يدعم <video> مباشرة
+            else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoSrc;
+                video.addEventListener('loadedmetadata', function () {
+                    video.play();
+                });
+            }
+        }
+    </script>
     <div class="container">
         <section id="news" class="section fade-in">
             <h2>أخبار كرة القدم</h2>
