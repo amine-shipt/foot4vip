@@ -182,51 +182,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>استمتع بأجمل تجربة في عالم كرة القدم.</p>
     </div>
 
-    <script>
-        // إضافة Keyframes لتحريك الدائرة
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes rotate {
-                0% {
-        transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-
-            @keyframes pulse {
-                0% {
-                    transform: scale(1);
-                    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 50px rgba(0, 123, 255, 0.5);
-                }
-                50% {
-                    transform: scale(1.1);
-                    box-shadow: 0 0 40px rgba(255, 255, 255, 1), 0 0 80px rgba(0, 123, 255, 0.7);
-                }
-                100% {
-                    transform: scale(1);
-                    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 50px rgba(0, 123, 255, 0.5);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-  // إخفاء شاشة التحميل بعد تحميل الصفحة
-        window.addEventListener('load', () => {
-            const splashScreen = document.getElementById('splash-screen');
-            const mainContent = document.getElementById('main-content');
-
-            setTimeout(() => {
-                splashScreen.style.opacity = '0'; // تأثير اختفاء
-                splashScreen.style.transition = 'opacity 1s ease';
-                setTimeout(() => {
-                    splashScreen.style.display = 'none'; // إخفاء شاشة التحميل
-                    mainContent.style.display = 'block'; // عرض المحتوى
-                }, 1000); // وقت تأثير الاختفاء
-            }, 4000); // مدة ظهور الشاشة (4 ثوانٍ)
-        });
-    </script>
-
     <header>
         <h1>موقع أوميش فوت</h1>
         <nav>
@@ -254,7 +209,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 
-    <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; height: 100vh; margin: 0; padding: 0; box-sizing: border-box;">
+ 
+    <div class="container">
+        <section id="news" class="section fade-in">
+            <h2>أخبار كرة القدم</h2>
+            <p>تابع أحدث الأخبار والتحليلات من عالم كرة القدم<html lang="ar">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>أخبار اليوم</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            background-color: #a7cddd;
+                            margin: 0;
+                            padding: 20px;
+                        }
+                        .container {
+                            max-width: 1200px;
+                            margin: auto;
+                            background: #eff1f3;
+                            border-radius: 10px;
+                            box-shadow: 0 4px 15px rgba(152, 128, 128, 0.1);
+                            padding: 20px;
+                        }
+                        .news-article {
+                            margin-bottom: 30px;
+                            border-bottom: 1px solid #6293db;
+                            padding-bottom: 20px;
+                        }
+                        .news-article:last-child {
+                            border-bottom: none;
+                        }
+                        .news-image img {
+                            width: 100%;
+                            height: auto;
+                            border-radius: 10px;
+                        }
+                        .news-title {
+                            font-size: 1.8rem;
+                            margin: 15px 0;
+                            color: #1c5290;
+                        }
+                        .news-summary {
+                            color: #aeb3b8;
+                            font-size: 1.1rem;
+                        }
+                        .more-text {
+                            display: none;
+                            margin-top: 10px;
+                            font-size: 1rem;
+                            color: #444;
+                        }
+                        .read-more {
+                            color: #007bff;
+                            cursor: pointer;
+                            margin-top: 10px;
+                            display: inline-block;
+                        }
+                        .read-more:hover {
+                            text-decoration: underline;
+                        }
+                    </style>
+                </head>
+                <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; height: 100vh; margin: 0; padding: 0; box-sizing: border-box;">
 
     <!-- لائحة المباريات -->
     <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 900px;">
@@ -321,71 +339,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 });
             }
         }
-    </script>
-    </body>
-    <div class="container">
-        <section id="news" class="section fade-in">
-            <h2>أخبار كرة القدم</h2>
-            <p>تابع أحدث الأخبار والتحليلات من عالم كرة القدم<html lang="ar">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>أخبار اليوم</title>
-                    <style>
-                        body {
-                            font-family: Arial, sans-serif;
-                            background-color: #a7cddd;
-                            margin: 0;
-                            padding: 20px;
-                        }
-                        .container {
-                            max-width: 1200px;
-                            margin: auto;
-                            background: #eff1f3;
-                            border-radius: 10px;
-                            box-shadow: 0 4px 15px rgba(152, 128, 128, 0.1);
-                            padding: 20px;
-                        }
-                        .news-article {
-                            margin-bottom: 30px;
-                            border-bottom: 1px solid #6293db;
-                            padding-bottom: 20px;
-                        }
-                        .news-article:last-child {
-                            border-bottom: none;
-                        }
-                        .news-image img {
-                            width: 100%;
-                            height: auto;
-                            border-radius: 10px;
-                        }
-                        .news-title {
-                            font-size: 1.8rem;
-                            margin: 15px 0;
-                            color: #1c5290;
-                        }
-                        .news-summary {
-                            color: #aeb3b8;
-                            font-size: 1.1rem;
-                        }
-                        .more-text {
-                            display: none;
-                            margin-top: 10px;
-                            font-size: 1rem;
-                            color: #444;
-                        }
-                        .read-more {
-                            color: #007bff;
-                            cursor: pointer;
-                            margin-top: 10px;
-                            display: inline-block;
-                        }
-                        .read-more:hover {
-                            text-decoration: underline;
-                        }
-                    </style>
-                </head>
-                <body>
+    </script> >
+                
                      <div class="container">
                         <div class="news-article">
                             <div class="news-image">
